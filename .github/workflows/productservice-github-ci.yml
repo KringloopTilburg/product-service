@@ -13,7 +13,7 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
-      - name: Run tests
+      - name: Run tests in pipeline
         run: mvn test
       
       - name: Build and package JAR
