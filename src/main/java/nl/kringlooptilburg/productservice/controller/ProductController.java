@@ -54,4 +54,76 @@ public class ProductController {
         productService.delete(productId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping(path = "/products/category/{category}")
+    public List<ProductDto> listProductsByCategory(@PathVariable("category") String category){
+        List<ProductEntity> productEntities = productService.findAllByCategory(category);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/price/{minPrice}/{maxPrice}")
+    public List<ProductDto> listProductsByPriceBetween(@PathVariable("minPrice") Double minPrice, @PathVariable("maxPrice") Double maxPrice){
+        List<ProductEntity> productEntities = productService.findAllByPriceBetween(minPrice, maxPrice);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/price/{price}")
+    public List<ProductDto> listProductsByPriceLessThan(@PathVariable("price") Double price){
+        List<ProductEntity> productEntities = productService.priceLessThan(price);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/brand/{brand}")
+    public List<ProductDto> listProductsByBrand(@PathVariable("brand") String brand){
+        List<ProductEntity> productEntities = productService.findAllByBrand(brand);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/color/{color}")
+    public List<ProductDto> listProductsByColor(@PathVariable("color") String color){
+        List<ProductEntity> productEntities = productService.findAllByColor(color);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/size/{size}")
+    public List<ProductDto> listProductsBySize(@PathVariable("size") String size){
+        List<ProductEntity> productEntities = productService.findAllBySize(size);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/material/{material}")
+    public List<ProductDto> listProductsByMaterial(@PathVariable("material") String material){
+        List<ProductEntity> productEntities = productService.findAllByMaterial(material);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/product-condition/{productCondition}")
+    public List<ProductDto> listProductsByProductCondition(@PathVariable("productCondition") String productCondition){
+        List<ProductEntity> productEntities = productService.findAllByProductCondition(productCondition);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/products/audience/{audience}")
+    public List<ProductDto> listProductsByAudience(@PathVariable("audience") String audience){
+        List<ProductEntity> productEntities = productService.findAllByAudience(audience);
+        return productEntities.stream()
+                .map(productMapper::mapTo)
+                .collect(Collectors.toList());
+    }
 }

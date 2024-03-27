@@ -1,6 +1,7 @@
 package nl.kringlooptilburg.productservice;
 
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
+import nl.kringlooptilburg.productservice.domain.entities.enums.*;
 
 public class TestDataUtil {
     private TestDataUtil(){
@@ -12,13 +13,13 @@ public class TestDataUtil {
                 .name("Grey Ripped Jeans")
                 .description("Good condition, size L, grey ripped jeans.")
                 .price(30.0)
-                .brand("H&M")
+                .brand(Brand.adidas)
                 .category("Jeans")
                 .size("L")
-                .material("Acrylic")
-                .productCondition("Good")
-                .color("Grey")
-                .audience("Male")
+                .material(Material.Acrylic)
+                .productCondition(ProductCondition.Good)
+                .color(Color.Grey)
+                .audience(Audience.Male)
                 .build();
     }
 
@@ -28,13 +29,13 @@ public class TestDataUtil {
                 .name("Colourful Jacket")
                 .description("New, size M, colourful jacket.")
                 .price(20.0)
-                .brand("Zara")
+                .brand(Brand.Zara)
                 .category("Outerwear")
                 .size("M")
-                .material("Cotton")
-                .productCondition("New")
-                .color("Multi")
-                .audience("Female")
+                .material(Material.Cotton)
+                .productCondition(ProductCondition.New)
+                .color(Color.Multi)
+                .audience(Audience.Female)
                 .build();
     }
 

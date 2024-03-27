@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import nl.kringlooptilburg.productservice.domain.entities.enums.*;
 
 @Data
 @AllArgsConstructor
@@ -24,19 +25,24 @@ public class ProductEntity {
 
     private Double price;
 
-    private String brand;
+    @Enumerated(EnumType.STRING)
+    private Brand brand;
 
     private String category;
 
     private String size;
 
-    private String material;
+    @Enumerated(EnumType.STRING)
+    private Material material;
 
     @Column(name = "product_condition")
-    private String productCondition;
+    @Enumerated(EnumType.STRING)
+    private ProductCondition productCondition;
 
-    private String color;
+    @Enumerated(EnumType.STRING)
+    private Color color;
 
-    private String audience;
+    @Enumerated(EnumType.STRING)
+    private Audience audience;
 
 }

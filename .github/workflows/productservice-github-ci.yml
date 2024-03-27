@@ -12,6 +12,9 @@ jobs:
           java-version: 21
           distribution: 'temurin'
           cache: 'maven'
+
+      - name: Run tests
+        run: mvn test
       
       - name: Build and package JAR
         run: mvn -B package --file pom.xml
