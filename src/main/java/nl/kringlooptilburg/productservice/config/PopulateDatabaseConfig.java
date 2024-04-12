@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PopulateDatabaseConfig {
 
+    // Populate the database with the colors, adding a new color is currently not possible
     @Bean
     public CommandLineRunner populateColorRepository(ColorRepository colorRepository) {
         return args -> {
