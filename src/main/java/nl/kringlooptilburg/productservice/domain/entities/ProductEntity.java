@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import nl.kringlooptilburg.productservice.domain.entities.enums.*;
 
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39,8 +41,13 @@ public class ProductEntity {
     @Enumerated(EnumType.STRING)
     private ProductCondition productCondition;
 
-    @Enumerated(EnumType.STRING)
-    private Color color;
+    @ManyToMany
+    @JoinTable(
+            name = "product_color",
+            joinColumns = @JoinColumn(name = "productId"),
+            inverseJoinColumns = @JoinColumn(name = "colorId")
+    )
+    private Set<ColorEntity> colors;
 
     @Enumerated(EnumType.STRING)
     private Audience audience;

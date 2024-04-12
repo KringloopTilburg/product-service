@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -26,6 +27,7 @@ public class ProductRepositoryIntegrationTests {
         this.underTest = underTest;
     }
 
+    @Transactional
     @Test
     public void testThatProductCanBeCreatedAndRecalled(){
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -35,6 +37,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.get()).isEqualTo(productEntityA);
     }
 
+    @Transactional
     @Test
     public void testThatMultipleProductsCanBeCreatedAndRecalled(){
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -48,6 +51,7 @@ public class ProductRepositoryIntegrationTests {
                 .containsExactly(productEntityA, productEntityB);
     }
 
+    @Transactional
     @Test
     public void testThatProductCanBeDeleted(){
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -57,6 +61,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result).isEmpty();
     }
 
+    @Transactional
     @Test
     public void testFindAllByCategory() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -69,6 +74,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result).hasSize(2).containsExactly(productEntityA, productEntityB);
     }
 
+    @Transactional
     @Test
     public void testFindAllByPriceBetween() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -83,6 +89,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.iterator().next()).isEqualTo(productEntityA);
     }
 
+    @Transactional
     @Test
     public void testPriceLessThan() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -97,6 +104,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.iterator().next()).isEqualTo(productEntityB);
     }
 
+    @Transactional
     @Test
     public void testFindAllByBrand() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -109,18 +117,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.iterator().next()).isEqualTo(productEntityA);
     }
 
-    @Test
-    public void testFindAllByColor() {
-        ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
-        underTest.save(productEntityA);
-        ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
-        underTest.save(productEntityB);
-
-        Iterable<ProductEntity> result = underTest.findAllByColor(Color.Grey);
-        assertThat(result).hasSize(1);
-        assertThat(result.iterator().next()).isEqualTo(productEntityA);
-    }
-
+    @Transactional
     @Test
     public void testFindAllBySize() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -133,6 +130,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.iterator().next()).isEqualTo(productEntityB);
     }
 
+    @Transactional
     @Test
     public void testFindAllByMaterial() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -145,6 +143,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.iterator().next()).isEqualTo(productEntityB);
     }
 
+    @Transactional
     @Test
     public void testFindAllByProductCondition() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
@@ -157,6 +156,7 @@ public class ProductRepositoryIntegrationTests {
         assertThat(result.iterator().next()).isEqualTo(productEntityA);
     }
 
+    @Transactional
     @Test
     public void testFindAllByAudience() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();

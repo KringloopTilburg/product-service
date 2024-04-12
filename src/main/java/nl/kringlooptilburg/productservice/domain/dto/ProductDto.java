@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import nl.kringlooptilburg.productservice.domain.entities.enums.Color;
+
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -29,7 +32,7 @@ public class ProductDto {
 
     private String productCondition;
 
-    private String color;
+    private Set<Color> colors;
 
     private String audience;
 

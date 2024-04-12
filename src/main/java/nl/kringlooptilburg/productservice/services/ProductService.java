@@ -22,8 +22,6 @@ public interface ProductService {
 
     List<ProductEntity> findAllByBrand(String brand);
 
-    List<ProductEntity> findAllByColor(String color);
-
     List<ProductEntity> findAllBySize(String size);
 
     List<ProductEntity> findAllByMaterial(String material);

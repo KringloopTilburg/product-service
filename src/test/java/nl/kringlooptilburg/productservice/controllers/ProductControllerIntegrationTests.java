@@ -37,9 +37,7 @@ public class ProductControllerIntegrationTests {
 
     @Test
     public void testThatCreatedProductSuccessfullyReturnsHttp201Created() throws Exception {
-        ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
-        productEntityA.setProductId(null);
-        String productJson = objectMapper.writeValueAsString(productEntityA);
+        String productJson = TestDataUtil.createExampleProductJson();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/product-service/products")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -51,9 +49,7 @@ public class ProductControllerIntegrationTests {
 
     @Test
     public void testThatCreatedProductSuccessfullyReturnsSavedProduct() throws Exception {
-        ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
-        productEntityA.setProductId(null);
-        String productJson = objectMapper.writeValueAsString(productEntityA);
+        String productJson = TestDataUtil.createExampleProductJson();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/product-service/products")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -76,8 +72,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$.material").value("Acrylic")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.color").value("Grey")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.audience").value("Male")
         );
@@ -117,8 +111,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );
@@ -170,8 +162,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$.material").value("Acrylic")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.color").value("Grey")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.audience").value("Male")
         );
@@ -231,8 +221,6 @@ public class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
-        ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );
     }
@@ -278,8 +266,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$[1].material").value("Cotton")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[1].productCondition").value("New")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].color").value("Multi")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[1].audience").value("Female")
         );
@@ -327,8 +313,6 @@ public class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("New")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Multi")
-        ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Female")
         );
     }
@@ -374,56 +358,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
-        );
-    }
-
-    @Test
-    public void testThatListProductsByColorSuccessfullyReturnsHttp200Ok() throws Exception {
-        ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
-        productService.createProduct(productEntityA);
-        ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
-        productService.createProduct(productEntityB);
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/color/Grey")
-                .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(
-                MockMvcResultMatchers.status().isOk()
-        );
-    }
-
-    @Test
-    public void testThatListProductsByColorSuccessfullyReturnsListOfProducts() throws Exception {
-        ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
-        productService.createProduct(productEntityA);
-        ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
-        productService.createProduct(productEntityB);
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/color/Grey")
-                .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productId").isNumber()
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].size").value("L")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );
@@ -471,8 +405,6 @@ public class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
-        ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );
     }
@@ -518,8 +450,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );
@@ -567,8 +497,6 @@ public class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
-        ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );
     }
@@ -614,8 +542,6 @@ public class ProductControllerIntegrationTests {
                 MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].color").value("Grey")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
         );

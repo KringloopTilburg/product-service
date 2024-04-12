@@ -3,6 +3,7 @@ package nl.kringlooptilburg.productservice.controller;
 import nl.kringlooptilburg.productservice.domain.dto.ProductDto;
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
 import nl.kringlooptilburg.productservice.mappers.Mapper;
+import nl.kringlooptilburg.productservice.services.ColorService;
 import nl.kringlooptilburg.productservice.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -82,14 +83,6 @@ public class ProductController {
     @GetMapping(path = "/products/brand/{brand}")
     public List<ProductDto> listProductsByBrand(@PathVariable("brand") String brand){
         List<ProductEntity> productEntities = productService.findAllByBrand(brand);
-        return productEntities.stream()
-                .map(productMapper::mapTo)
-                .collect(Collectors.toList());
-    }
-
-    @GetMapping(path = "/products/color/{color}")
-    public List<ProductDto> listProductsByColor(@PathVariable("color") String color){
-        List<ProductEntity> productEntities = productService.findAllByColor(color);
         return productEntities.stream()
                 .map(productMapper::mapTo)
                 .collect(Collectors.toList());
