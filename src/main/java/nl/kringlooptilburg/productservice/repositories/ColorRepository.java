@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ColorRepository extends CrudRepository<ColorEntity, Integer> {
     ColorEntity findByColor(Color color);
-    boolean existsByColor(Color color);
 }
