@@ -1,6 +1,7 @@
 package nl.kringlooptilburg.productservice.repositories;
 
 import nl.kringlooptilburg.productservice.TestDataUtil;
+import nl.kringlooptilburg.productservice.config.RabbitMQConfig;
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
 import nl.kringlooptilburg.productservice.domain.entities.enums.*;
 import org.junit.jupiter.api.Test;
@@ -18,18 +19,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class ProductRepositoryIntegrationTests {
+class ProductRepositoryIntegrationTests {
 
     private ProductRepository underTest;
+    private RabbitMQConfig rabbitMQConfig;
 
     @Autowired
-    public ProductRepositoryIntegrationTests(ProductRepository underTest) {
+    public ProductRepositoryIntegrationTests(ProductRepository underTest, RabbitMQConfig rabbitMQConfig) {
         this.underTest = underTest;
+        this.rabbitMQConfig = rabbitMQConfig;
     }
 
     @Transactional
     @Test
-    public void testThatProductCanBeCreatedAndRecalled(){
+    public void testThatProductCanBeCreatedAndRecalled() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
         underTest.save(productEntityA);
         Optional<ProductEntity> result = underTest.findById(productEntityA.getProductId());
@@ -39,7 +42,7 @@ public class ProductRepositoryIntegrationTests {
 
     @Transactional
     @Test
-    public void testThatMultipleProductsCanBeCreatedAndRecalled(){
+    public void testThatMultipleProductsCanBeCreatedAndRecalled() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
         underTest.save(productEntityA);
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
@@ -53,7 +56,7 @@ public class ProductRepositoryIntegrationTests {
 
     @Transactional
     @Test
-    public void testThatProductCanBeDeleted(){
+    public void testThatProductCanBeDeleted() {
         ProductEntity productEntityA = TestDataUtil.createTestProductEntityA();
         underTest.save(productEntityA);
         underTest.deleteById(productEntityA.getProductId());
