@@ -82,7 +82,7 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Grey Ripped Jeans&quot;,&#xd;
-  &quot;description&quot;: &quot;Good condition, size L, grey ripped jeans.&quot;,&#xd;
+  &quot;description&quot;: &quot;Good condition, size L, grey ripped Jeans.&quot;,&#xd;
   &quot;price&quot;: 30.0,&#xd;
   &quot;brand&quot;: &quot;H&amp;M&quot;,&#xd;
   &quot;category&quot;: &quot;Jeans&quot;,&#xd;
@@ -184,7 +184,7 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;Grey Ripped Jeans&quot;,&#xd;
-  &quot;description&quot;: &quot;Good condition, size L, grey ripped jeans.&quot;,&#xd;
+  &quot;description&quot;: &quot;Good condition, size L, grey ripped Jeans.&quot;,&#xd;
   &quot;price&quot;: 30.0,&#xd;
   &quot;brand&quot;: &quot;H&amp;M&quot;,&#xd;
   &quot;category&quot;: &quot;Jeans&quot;,&#xd;

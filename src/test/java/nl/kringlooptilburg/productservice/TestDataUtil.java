@@ -17,49 +17,49 @@ public class TestDataUtil {
     public static ProductEntity createTestProductEntityA(){
         Set<ColorEntity> colors = new HashSet<>();
         Set<ProductEntity> emptyProductSet = new HashSet<>();
-        colors.add(new ColorEntity(1, Color.Black, emptyProductSet));
-        colors.add(new ColorEntity(11, Color.Grey, emptyProductSet));
+        colors.add(new ColorEntity(1, Color.BLACK, emptyProductSet));
+        colors.add(new ColorEntity(11, Color.GREY, emptyProductSet));
 
         return ProductEntity.builder()
                 .productId(1)
                 .name("Grey Ripped Jeans")
-                .description("Good condition, size L, grey ripped jeans.")
+                .description("Good condition, size L, grey ripped Jeans.")
                 .price(30.0)
-                .brand(Brand.adidas)
+                .brand(Brand.ADIDAS)
                 .category("Jeans")
                 .size("L")
-                .material(Material.Acrylic)
-                .productCondition(ProductCondition.Good)
+                .material(Material.ACRYLIC)
+                .productCondition(ProductCondition.GOOD)
                 .colors(colors)
-                .audience(Audience.Male)
+                .audience(Audience.MALE)
                 .build();
     }
 
     public static ProductEntity createTestProductEntityB(){
         Set<ColorEntity> colors = new HashSet<>();
         Set<ProductEntity> emptyProductSet = new HashSet<>();
-        colors.add(new ColorEntity(2, Color.White, emptyProductSet));
-        colors.add(new ColorEntity(6, Color.Yellow, emptyProductSet));
+        colors.add(new ColorEntity(2, Color.WHITE, emptyProductSet));
+        colors.add(new ColorEntity(6, Color.YELLOW, emptyProductSet));
 
         return ProductEntity.builder()
                 .productId(2)
                 .name("Colourful Jacket")
                 .description("New, size M, colourful jacket.")
                 .price(20.0)
-                .brand(Brand.Zara)
+                .brand(Brand.ZARA)
                 .category("Outerwear")
                 .size("M")
-                .material(Material.Cotton)
-                .productCondition(ProductCondition.New)
+                .material(Material.COTTON)
+                .productCondition(ProductCondition.NEW)
                 .colors(colors)
-                .audience(Audience.Female)
+                .audience(Audience.FEMALE)
                 .build();
     }
 
     public static String createExampleProductJson() {
         return "{\n" +
                 "  \"name\": \"Grey Ripped Jeans\",\n" +
-                "  \"description\": \"Good condition, size L, grey ripped jeans.\",\n" +
+                "  \"description\": \"Good condition, size L, grey ripped Jeans.\",\n" +
                 "  \"price\": 30.0,\n" +
                 "  \"brand\": \"adidas\",\n" +
                 "  \"category\": \"Jeans\",\n" +

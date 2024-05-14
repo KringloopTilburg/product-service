@@ -69,21 +69,21 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$.description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$.brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$.material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$.productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$.audience").value("MALE")
         );
     }
 
@@ -108,21 +108,21 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 
@@ -159,21 +159,21 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$.description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$.brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$.material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$.productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$.audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$.audience").value("MALE")
         );
     }
 
@@ -217,21 +217,21 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 
@@ -267,17 +267,17 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[1].price").value(20.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].brand").value("Zara")
+                MockMvcResultMatchers.jsonPath("$[1].brand").value("ZARA")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[1].category").value("Outerwear")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[1].size").value("M")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].material").value("Cotton")
+                MockMvcResultMatchers.jsonPath("$[1].material").value("COTTON")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].productCondition").value("New")
+                MockMvcResultMatchers.jsonPath("$[1].productCondition").value("NEW")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[1].audience").value("Female")
+                MockMvcResultMatchers.jsonPath("$[1].audience").value("FEMALE")
         );
     }
 
@@ -313,17 +313,17 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(20.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("Zara")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ZARA")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Outerwear")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("M")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Cotton")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("COTTON")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("New")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("NEW")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Female")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("FEMALE")
         );
     }
 
@@ -334,7 +334,7 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/brand/adidas")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/brand/ADIDAS")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
@@ -348,28 +348,28 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/brand/adidas")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/brand/ADIDAS")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productId").isNumber()
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 
@@ -401,21 +401,21 @@ class ProductControllerIntegrationTests {
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 
@@ -426,7 +426,7 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/material/Acrylic")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/material/ACRYLIC")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
@@ -440,28 +440,28 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/material/Acrylic")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/material/ACRYLIC")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productId").isNumber()
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 
@@ -472,7 +472,7 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/product-condition/Good")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/product-condition/GOOD")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
@@ -486,28 +486,28 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/product-condition/Good")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/product-condition/GOOD")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productId").isNumber()
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 
@@ -518,7 +518,7 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/audience/Male")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/audience/MALE")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
@@ -532,28 +532,28 @@ class ProductControllerIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         productService.createProduct(productEntityB);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/audience/Male")
+        mockMvc.perform(MockMvcRequestBuilders.get("/product-service/products/audience/MALE")
                 .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].productId").isNumber()
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].name").value("Grey Ripped Jeans")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped jeans.")
+                MockMvcResultMatchers.jsonPath("$[0].description").value("Good condition, size L, grey ripped Jeans.")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].price").value(30.0)
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].brand").value("adidas")
+                MockMvcResultMatchers.jsonPath("$[0].brand").value("ADIDAS")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].category").value("Jeans")
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$[0].size").value("L")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].material").value("Acrylic")
+                MockMvcResultMatchers.jsonPath("$[0].material").value("ACRYLIC")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("Good")
+                MockMvcResultMatchers.jsonPath("$[0].productCondition").value("GOOD")
         ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].audience").value("Male")
+                MockMvcResultMatchers.jsonPath("$[0].audience").value("MALE")
         );
     }
 }

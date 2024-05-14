@@ -115,7 +115,7 @@ class ProductRepositoryIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         underTest.save(productEntityB);
 
-        Iterable<ProductEntity> result = underTest.findAllByBrand(Brand.adidas);
+        Iterable<ProductEntity> result = underTest.findAllByBrand(Brand.ADIDAS);
         assertThat(result).hasSize(1);
         assertThat(result.iterator().next()).isEqualTo(productEntityA);
     }
@@ -141,7 +141,7 @@ class ProductRepositoryIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         underTest.save(productEntityB);
 
-        Iterable<ProductEntity> result = underTest.findAllByMaterial(Material.Cotton);
+        Iterable<ProductEntity> result = underTest.findAllByMaterial(Material.COTTON);
         assertThat(result).hasSize(1);
         assertThat(result.iterator().next()).isEqualTo(productEntityB);
     }
@@ -154,7 +154,7 @@ class ProductRepositoryIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         underTest.save(productEntityB);
 
-        Iterable<ProductEntity> result = underTest.findAllByProductCondition(ProductCondition.Good);
+        Iterable<ProductEntity> result = underTest.findAllByProductCondition(ProductCondition.GOOD);
         assertThat(result).hasSize(1);
         assertThat(result.iterator().next()).isEqualTo(productEntityA);
     }
@@ -167,7 +167,7 @@ class ProductRepositoryIntegrationTests {
         ProductEntity productEntityB = TestDataUtil.createTestProductEntityB();
         underTest.save(productEntityB);
 
-        Iterable<ProductEntity> result = underTest.findAllByAudience(Audience.Male);
+        Iterable<ProductEntity> result = underTest.findAllByAudience(Audience.MALE);
         assertThat(result).hasSize(1);
         assertThat(result.iterator().next()).isEqualTo(productEntityA);
     }
