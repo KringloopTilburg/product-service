@@ -57,3 +57,5 @@ jobs:
           push: true
           tags: vandalen/kringlooptilburg-productservice:test
           build-args: JAR_FILE=./productservice.jar
+
+      #hoi bas test verwijde rlater
