@@ -5,11 +5,15 @@ import nl.kringlooptilburg.productservice.TestDataUtil;
 import nl.kringlooptilburg.productservice.config.RabbitMQConfig;
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
 import nl.kringlooptilburg.productservice.services.ProductService;
+import nl.kringlooptilburg.productservice.services.rabbit.RabbitMQSender;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.annotation.DirtiesContext;
@@ -18,6 +22,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.mockito.ArgumentMatchers.anyList;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
@@ -35,12 +41,20 @@ class ProductControllerIntegrationTests {
 
     private final RabbitMQConfig rabbitMQConfig;
 
+    @MockBean
+    private RabbitMQSender rabbitMQSender;
+
     @Autowired
     public ProductControllerIntegrationTests(MockMvc mockMvc, ObjectMapper objectMapper, ProductService productService, RabbitMQConfig rabbitMQConfig) {
         this.mockMvc = mockMvc;
         this.objectMapper = objectMapper;
         this.productService = productService;
         this.rabbitMQConfig = rabbitMQConfig;
+    }
+
+    @BeforeEach
+    public void setup() {
+        Mockito.doNothing().when(rabbitMQSender).sendImages(anyList());
     }
 
     @Test
