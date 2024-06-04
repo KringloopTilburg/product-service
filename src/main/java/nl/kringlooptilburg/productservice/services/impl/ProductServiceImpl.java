@@ -17,8 +17,8 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-    private ProductRepository productRepository;
-    private ColorService colorService;
+    private final ProductRepository productRepository;
+    private final ColorService colorService;
 
     public ProductServiceImpl(ProductRepository productRepository, ColorService colorService) {
         this.productRepository = productRepository;

@@ -5,16 +5,15 @@ import nl.kringlooptilburg.productservice.TestDataUtil;
 import nl.kringlooptilburg.productservice.config.RabbitMQConfig;
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
 import nl.kringlooptilburg.productservice.services.ProductService;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -24,16 +23,17 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @ExtendWith(SpringExtension.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
+@ActiveProfiles("test")
 class ProductControllerIntegrationTests {
 
-    private ProductService productService;
+    private final ProductService productService;
 
     @Autowired
     private MockMvc mockMvc;
 
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    private RabbitMQConfig rabbitMQConfig;
+    private final RabbitMQConfig rabbitMQConfig;
 
     @Autowired
     public ProductControllerIntegrationTests(MockMvc mockMvc, ObjectMapper objectMapper, ProductService productService, RabbitMQConfig rabbitMQConfig) {
@@ -44,26 +44,28 @@ class ProductControllerIntegrationTests {
     }
 
     @Test
-    @Disabled
     public void testThatCreatedProductSuccessfullyReturnsHttp201Created() throws Exception {
         String productJson = TestDataUtil.createExampleProductJson();
+        MockMultipartFile productJsonPart = new MockMultipartFile("productJson", "", "application/json", productJson.getBytes());
+        MockMultipartFile imagesPart = new MockMultipartFile("images", "test.jpg", "image/jpeg", "test image content".getBytes());
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/product-service/products")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(productJson)
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/product-service/products")
+                .file(productJsonPart)
+                .file(imagesPart)
         ).andExpect(
                 MockMvcResultMatchers.status().isCreated()
         );
     }
 
     @Test
-    @Disabled
     public void testThatCreatedProductSuccessfullyReturnsSavedProduct() throws Exception {
         String productJson = TestDataUtil.createExampleProductJson();
+        MockMultipartFile productJsonPart = new MockMultipartFile("productJson", "", "application/json", productJson.getBytes());
+        MockMultipartFile imagesPart = new MockMultipartFile("images", "test.jpg", "image/jpeg", "test image content".getBytes());
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/product-service/products")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(productJson)
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/product-service/products")
+                .file(productJsonPart)
+                .file(imagesPart)
         ).andExpect(
                 MockMvcResultMatchers.jsonPath("$.productId").value(1)
         ).andExpect(

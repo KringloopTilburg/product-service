@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ColorServiceImpl implements ColorService {
-    private ColorRepository colorRepository;
+    private final ColorRepository colorRepository;
 
     public ColorServiceImpl(ColorRepository colorRepository) {
         this.colorRepository = colorRepository;

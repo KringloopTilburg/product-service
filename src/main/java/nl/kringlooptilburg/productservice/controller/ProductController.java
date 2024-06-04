@@ -1,13 +1,11 @@
 package nl.kringlooptilburg.productservice.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import nl.kringlooptilburg.productservice.domain.dto.ProductDto;
 import nl.kringlooptilburg.productservice.domain.dto.ProductImageDto;
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
 import nl.kringlooptilburg.productservice.mappers.Mapper;
-import nl.kringlooptilburg.productservice.services.ColorService;
 import nl.kringlooptilburg.productservice.services.ProductService;
 import nl.kringlooptilburg.productservice.services.rabbit.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +36,7 @@ public class ProductController {
 
     @PostMapping(path = "/products")
     public ResponseEntity<ProductDto> createProduct(@RequestPart String productJson, @RequestPart("images") MultipartFile[] images) {
-        ProductDto productDto = null;
+        ProductDto productDto;
 
         try {
             productDto = objectMapper.readValue(productJson, ProductDto.class);

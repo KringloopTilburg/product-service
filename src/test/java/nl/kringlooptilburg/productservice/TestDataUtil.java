@@ -1,8 +1,5 @@
 package nl.kringlooptilburg.productservice;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.kringlooptilburg.productservice.domain.dto.ProductDto;
 import nl.kringlooptilburg.productservice.domain.entities.ColorEntity;
 import nl.kringlooptilburg.productservice.domain.entities.ProductEntity;
 import nl.kringlooptilburg.productservice.domain.entities.enums.*;
@@ -58,16 +55,17 @@ public class TestDataUtil {
 
     public static String createExampleProductJson() {
         return "{\n" +
+                "  \"productId\": 1,\n" +
                 "  \"name\": \"Grey Ripped Jeans\",\n" +
                 "  \"description\": \"Good condition, size L, grey ripped Jeans.\",\n" +
                 "  \"price\": 30.0,\n" +
-                "  \"brand\": \"adidas\",\n" +
+                "  \"brand\": \"ADIDAS\",\n" +
                 "  \"category\": \"Jeans\",\n" +
                 "  \"size\": \"L\",\n" +
-                "  \"material\": \"Acrylic\",\n" +
-                "  \"productCondition\": \"Good\",\n" +
-                "  \"colors\": [\"Red\", \"Blue\", \"Green\"],\n" +
-                "  \"audience\": \"Male\"\n" +
+                "  \"material\": \"ACRYLIC\",\n" +
+                "  \"productCondition\": \"GOOD\",\n" +
+                "  \"colors\": [\"RED\", \"BLUE\", \"GREEN\"],\n" +
+                "  \"audience\": \"MALE\"\n" +
                 "}";
     }
 

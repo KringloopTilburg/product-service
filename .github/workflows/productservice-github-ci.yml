@@ -46,16 +46,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: List files and directories
-        run: ls -l
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: vandalen/kringlooptilburg-productservice:test
+          tags: kringloopfontysproject/k013project:productservice
           build-args: JAR_FILE=./productservice.jar
-
-      #hoi bas test verwijde rlater
