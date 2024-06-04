@@ -1,11 +1,4 @@
-on:
-  push:
-    branches: [ "dev" ]
-    tags:
-      - '*'
-  pull_request:
-    branches: [ "main" ]
-
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,6 +12,9 @@ jobs:
           java-version: 21
           distribution: 'temurin'
           cache: 'maven'
+
+      - name: Run tests in pipeline
+        run: mvn test
       
       - name: Build and package JAR
         run: mvn -B package --file pom.xml
@@ -50,14 +46,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: List files and directories
-        run: ls -l
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: vandalen/kringlooptilburg-productservice:test
+          tags: kringloopfontysproject/k013project:productservice
           build-args: JAR_FILE=./productservice.jar

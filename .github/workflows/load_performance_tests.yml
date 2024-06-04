@@ -1,0 +1,25 @@
+on: [push]
+jobs:
+  Main:
+    runs-on: ubuntu-latest
+    if: false # Haal deze regel weg na toevoegen nieuwe Lantency Lingo repo secret aan repo en aanpassen van test-plan.jmx
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Run JMeter Tests
+        uses: QAInsights/PerfAction@v5.6.2
+        with:
+          test-plan-path: jmeter-files/test-plan.jmx # Apache Jmeter testplan aanpassen (& applicatie hosten in Cloud (Azure Microsoft wordt aangeraden))
+          args: ''
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-results
+          path: result.jtl
+      - name: Analyze Results with Latency Lingo
+        uses: latency-lingo/github-action@v0.0.2
+        with:
+          api-key: ${{ secrets.LATENCY_LINGO_API_KEY }} # Verander secret in repo met eigen/nieuwe Latency Lingo token
+          file: result.jtl
+          label: Checkout Flow Automated Test Plan
+          format: jmeter
